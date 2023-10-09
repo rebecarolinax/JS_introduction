@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- linguagem padrão -->
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- título da aba do navegador -->
+    <title>Calculadora Simples</title>
+</head>
+
+<body>
+    <form>
+        <!-- Título principal do site-->
+        <h1>Calculadora Simples</h1>
+
+        <!-- a seguir os inputs relacionados aos números das operações-->
+        <label for="n1">Primeiro Número</label>
+        <input type="number" id="n1">
+        <br><br>
+        <!-- a seguir os inputs relacionados aos números das operações-->
+        <label for="n2">Segundo Número</label>
+        <input type="number" id="n2">
+        <br><br>
+
+        <!-- select com as opções relacionadas as operações disponíveis -->
+        <label for="operacao">Operação</label>
+        <select id="operacao">
+            <option value="">Selecione</option>
+            <option value="+">Somar</option>
+            <option value="-">Subtrair</option>
+            <option value="*">Multiplicar</option>
+            <option value="/">Dividir</option>
+        </select>
+
+        <!-- botão que realiza a função calcular() -->
+        <button type="submit" onclick="calcular()">Calcular</button>
+    </form>
+
+    <!-- início da lçogica de programação utilizando JS -->
+    <script>
+        function calcular() {
+            event.preventDefault(); //parar o submit do formulário
+
+            // declaradas as variáveis
+            // n1 = Primeiro Número
+            // n2 = Segundo Número
+            // op = Operação referente
+            let n1 = parseFloat(document.getElementById('n1').value);
+            let n2 = parseFloat(document.getElementById('n2').value);
+            let op = document.getElementById('operacao').value;
+            let resultado; //indefinido
+
+            // iniciada a lógica com If, Else If, Else
+            if (op == '+') {
+                // de soma
+                resultado = somar(n1, n2);
+            }
+            else if (op == '-') {
+                // de subtração
+                resultado = subtrair(n1, n2);
+            }
+            else if (op == '*') {
+                // de multiplicação
+                resultado = multiplicar(n1, n2);
+            }
+            else if (op == '/') {
+                // de divisão
+                resultado = dividir(n1, n2);
+            } else {
+                // caso digitado caracter inválido, exibe na tela
+                alert('Insira uma operação válida! (+,-,*,/)')
+            }
+
+            // se digitado caracter válido, retorna o valor da função com operação realizada
+            alert(`O resultado da operação é : ${resultado}`);
+        }
+
+        // iniciada a lógica de return dos elementos após a verificação
+        function somar(n1, n2) {
+            // retorna o valor da soma
+            return n1 + n2; 
+        }
+
+        function subtrair(n1, n2) {
+            // da subtração
+            return n1 - n2;
+        }
+
+        function multiplicar(n1, n2) {
+            // da multiplicação
+            return n1 * n2;
+        }
+
+        function dividir(n1, n2) {
+            // da divisão
+            return n1 / n2;
+        }
+    </script>
+    <!-- fim da lógica script -->
+</body>
+</html>
